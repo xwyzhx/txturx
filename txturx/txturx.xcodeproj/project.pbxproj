@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		570FCB7A1D850E9B001CC6D4 /* youth.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 570FCB791D850E9B001CC6D4 /* youth.mp3 */; };
 		960B067CF0600BF7DB00CF6E /* Pods_txturx.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58DBA12DEF60FFCCCFDC3F2A /* Pods_txturx.framework */; };
 		F5745D3E1D83CC9B00B27CE3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5745D3D1D83CC9B00B27CE3 /* AppDelegate.swift */; };
 		F5745D401D83CC9B00B27CE3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5745D3F1D83CC9B00B27CE3 /* ViewController.swift */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		0BDDE36040870217C1EEB909 /* Pods-txturx.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-txturx.release.xcconfig"; path = "Pods/Target Support Files/Pods-txturx/Pods-txturx.release.xcconfig"; sourceTree = "<group>"; };
+		570FCB791D850E9B001CC6D4 /* youth.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = youth.mp3; path = Assets.xcassets/youth.dataset/youth.mp3; sourceTree = "<group>"; };
 		58DBA12DEF60FFCCCFDC3F2A /* Pods_txturx.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_txturx.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFA8AC719599A501ACC59052 /* Pods-txturx.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-txturx.debug.xcconfig"; path = "Pods/Target Support Files/Pods-txturx/Pods-txturx.debug.xcconfig"; sourceTree = "<group>"; };
 		F5745D3A1D83CC9B00B27CE3 /* txturx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = txturx.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +93,7 @@
 		F5745D3C1D83CC9B00B27CE3 /* txturx */ = {
 			isa = PBXGroup;
 			children = (
+				570FCB791D850E9B001CC6D4 /* youth.mp3 */,
 				F5745D3D1D83CC9B00B27CE3 /* AppDelegate.swift */,
 				F5745D3F1D83CC9B00B27CE3 /* ViewController.swift */,
 				F5745D411D83CC9B00B27CE3 /* Main.storyboard */,
@@ -137,6 +140,7 @@
 				TargetAttributes = {
 					F5745D391D83CC9B00B27CE3 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = GN433D7T2M;
 					};
 				};
 			};
@@ -163,6 +167,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				570FCB7A1D850E9B001CC6D4 /* youth.mp3 in Resources */,
 				F5745D481D83CC9B00B27CE3 /* LaunchScreen.storyboard in Resources */,
 				F5745D451D83CC9B00B27CE3 /* Assets.xcassets in Resources */,
 				F5745D431D83CC9B00B27CE3 /* Main.storyboard in Resources */,
@@ -339,11 +344,14 @@
 			baseConfigurationReference = AFA8AC719599A501ACC59052 /* Pods-txturx.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = txturx/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.makeschool.txturx;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -352,11 +360,14 @@
 			baseConfigurationReference = 0BDDE36040870217C1EEB909 /* Pods-txturx.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = txturx/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.makeschool.txturx;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

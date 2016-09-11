@@ -10,7 +10,7 @@ import UIKit
 import QuartzCore
 import AudioToolbox
 import AVFoundation
-
+import CoreMotion
 import Alamofire
 //import AlamofireImage
 //import AlamofireNetworkActivityIndicator
@@ -25,22 +25,43 @@ class ViewController: UIViewController {
     var timeLeft : NSTimeInterval!
     var timer : NSTimer!
     var currentDateTime: NSDate!
-    var audioPlayer = AVAudioPlayer()
+    var systemSoundID: SystemSoundID = 1016
     var timeSet = ""
     var savedNum = ""
+    var shakeTimer: NSTimer!
+    let motionManager = CMMotionManager()
+    var oneMin : NSTimer!
+    var alarm: AVAudioPlayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         self.numericDisplay.text = "Don't oversleep!"
-        //        self.resetButton.setTitle("Reset", forState: UIControlState.Normal)
-        //        self.startButton.setTitle("Set", forState: UIControlState.Normal)
+        
+        startButton.layer.cornerRadius = 5
+        resetButton.layer.cornerRadius = 5
+        setupButton.layer.cornerRadius = 5
+        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+//    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
+//        let pickerLabel = UILabel()
+//        let titleData = datePicker[row]
+//        let myTitle = NSAttributedString(string: titleData, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 26.0)!,NSForegroundColorAttributeName:UIColor.blackColor()])
+//        pickerLabel.attributedText = myTitle
+//        return pickerLabel
+//    }
+    
+    func update() {
+        if let accelerometerData = motionManager.accelerometerData {
+            print(accelerometerData)
+        }
     }
     
     func updateTime() {
@@ -49,11 +70,9 @@ class ViewController: UIViewController {
         
         if remainingTime <= 0.0 {
             timer.invalidate()
-            AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
             numericDisplay.text = "Now we text your ex."
-            
-            text(savedNum)
-            
+            becomeAlarmed()
+            oneMinWarning(NSDate())
             
             return
         }
@@ -62,13 +81,37 @@ class ViewController: UIViewController {
         //        }
     }
     
-    func text(ex: String) {
-        var params: [String: String] = [
+    func becomeAlarmed() {
+        let path = NSBundle.mainBundle().pathForResource("youth.mp3", ofType: nil)!
+        print(path)
+        let url = NSURL(fileURLWithPath: path)
+        print(url)
+        do {
+            let sound = try AVAudioPlayer(contentsOfURL: url)
+            alarm = sound
+            alarm.play()
+        } catch {
+            // couldn't load file :(
+            print("no sound")
+        }
+    }
+    
+    func oneMinWarning(start: NSDate) {
+        var elapsedTime : NSTimeInterval = NSDate().timeIntervalSinceDate(start)
+        while (elapsedTime < 1.0) {
+            // keep on the checking
+            elapsedTime = NSDate().timeIntervalSinceDate(start)
+        }
+        print("hell from 1 sec after")
+    }
+    
+    func text(ex: String, msg: String) {
+        let params: [String: String] = [
             "api_key": "5b096003",
             "api_secret": "8dd1f80eb85ece92",
             "to": ex,
             "from": "12674055716",
-            "text": "I miss u nurd",
+            "text": msg,
             ]
         
         Alamofire.request(.GET, "https://rest.nexmo.com/sms/json?", parameters: params)
@@ -108,7 +151,7 @@ class ViewController: UIViewController {
         timeLeft = Double (datecomponents.second)
         
         if timeLeft < 0 {
-            self.numericDisplay.text = "Please enter a time in the future, \n unless you want us to text your ex for you now."
+            self.numericDisplay.text = "Please enter a time in the future, unless you want us to text your ex for you now."
             return
         }
         
@@ -116,8 +159,19 @@ class ViewController: UIViewController {
         timer = NSTimer.scheduledTimerWithTimeInterval(0.10, target: self, selector: aSelector, userInfo: nil, repeats: true)
     }
     
+    func isAwake(time : NSTimeInterval) -> Bool {
+        motionManager.startAccelerometerUpdates()
+        shakeTimer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(ViewController.update), userInfo: nil, repeats: true)
+        
+        return false
+    }
+    
     @IBAction func resetButtonPressed(sender: AnyObject) {
-        timer.invalidate()
+        if (timer.valid) {
+            timer.invalidate()
+        }
+        
+        alarm.stop()
         self.numericDisplay.text = "Alarm reset."
     }
     
