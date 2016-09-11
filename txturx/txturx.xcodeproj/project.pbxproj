@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		570FCB7A1D850E9B001CC6D4 /* youth.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 570FCB791D850E9B001CC6D4 /* youth.mp3 */; };
+		571B88091D85355B0053108C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 571B88081D85355B0053108C /* Assets.xcassets */; };
 		960B067CF0600BF7DB00CF6E /* Pods_txturx.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58DBA12DEF60FFCCCFDC3F2A /* Pods_txturx.framework */; };
 		F5745D3E1D83CC9B00B27CE3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5745D3D1D83CC9B00B27CE3 /* AppDelegate.swift */; };
 		F5745D401D83CC9B00B27CE3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5745D3F1D83CC9B00B27CE3 /* ViewController.swift */; };
 		F5745D431D83CC9B00B27CE3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5745D411D83CC9B00B27CE3 /* Main.storyboard */; };
-		F5745D451D83CC9B00B27CE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5745D441D83CC9B00B27CE3 /* Assets.xcassets */; };
 		F5745D481D83CC9B00B27CE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5745D461D83CC9B00B27CE3 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -32,13 +32,13 @@
 /* Begin PBXFileReference section */
 		0BDDE36040870217C1EEB909 /* Pods-txturx.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-txturx.release.xcconfig"; path = "Pods/Target Support Files/Pods-txturx/Pods-txturx.release.xcconfig"; sourceTree = "<group>"; };
 		570FCB791D850E9B001CC6D4 /* youth.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = youth.mp3; path = Assets.xcassets/youth.dataset/youth.mp3; sourceTree = "<group>"; };
+		571B88081D85355B0053108C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		58DBA12DEF60FFCCCFDC3F2A /* Pods_txturx.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_txturx.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFA8AC719599A501ACC59052 /* Pods-txturx.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-txturx.debug.xcconfig"; path = "Pods/Target Support Files/Pods-txturx/Pods-txturx.debug.xcconfig"; sourceTree = "<group>"; };
 		F5745D3A1D83CC9B00B27CE3 /* txturx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = txturx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5745D3D1D83CC9B00B27CE3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5745D3F1D83CC9B00B27CE3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F5745D421D83CC9B00B27CE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F5745D441D83CC9B00B27CE3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F5745D471D83CC9B00B27CE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F5745D491D83CC9B00B27CE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,9 +97,9 @@
 				F5745D3D1D83CC9B00B27CE3 /* AppDelegate.swift */,
 				F5745D3F1D83CC9B00B27CE3 /* ViewController.swift */,
 				F5745D411D83CC9B00B27CE3 /* Main.storyboard */,
-				F5745D441D83CC9B00B27CE3 /* Assets.xcassets */,
 				F5745D461D83CC9B00B27CE3 /* LaunchScreen.storyboard */,
 				F5745D491D83CC9B00B27CE3 /* Info.plist */,
+				571B88081D85355B0053108C /* Assets.xcassets */,
 			);
 			path = txturx;
 			sourceTree = "<group>";
@@ -169,7 +169,7 @@
 			files = (
 				570FCB7A1D850E9B001CC6D4 /* youth.mp3 in Resources */,
 				F5745D481D83CC9B00B27CE3 /* LaunchScreen.storyboard in Resources */,
-				F5745D451D83CC9B00B27CE3 /* Assets.xcassets in Resources */,
+				571B88091D85355B0053108C /* Assets.xcassets in Resources */,
 				F5745D431D83CC9B00B27CE3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

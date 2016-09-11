@@ -27,7 +27,7 @@ class ViewController: UIViewController {
     var currentDateTime: NSDate!
     var systemSoundID: SystemSoundID = 1016
     var timeSet = ""
-    var savedNum = ""
+    var savedNum = "17182106463"
     var shakeTimer: NSTimer!
     let motionManager = CMMotionManager()
     var oneMin : NSTimer!
@@ -56,8 +56,8 @@ class ViewController: UIViewController {
         
         if remainingTime <= 0.0 {
             timer.invalidate()
+            setDisplayText("Shake til ya wake! You have one minute.")
             becomeAlarmed()
-            numericDisplay.text = "You have one minute to wake up!"
             oneMinWarning(NSDate())
             
             return
@@ -68,10 +68,17 @@ class ViewController: UIViewController {
     }
     
     func becomeAlarmed() {
+        //1. Create the alert controller.
+        let alert = UIAlertController(title: "Shake til ya wake! You have one minute.", message: "", preferredStyle: .Alert)
+        
+        //2. End when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+        }))
+        
         let path = NSBundle.mainBundle().pathForResource("youth.mp3", ofType: nil)!
-        print(path)
+//        print(path)
         let url = NSURL(fileURLWithPath: path)
-        print(url)
+//        print(url)
         do {
             let sound = try AVAudioPlayer(contentsOfURL: url)
             alarm = sound
@@ -83,22 +90,28 @@ class ViewController: UIViewController {
     }
     
     func oneMinWarning(start: NSDate) {
+        setDisplayText("Shake til ya wake! You have one minute.")
+        
         var elapsedTime : NSTimeInterval = NSDate().timeIntervalSinceDate(start)
         var count = 0;
         while (elapsedTime < 60.0) {
             // keep on the checking
             elapsedTime = NSDate().timeIntervalSinceDate(start)
             motionManager.startAccelerometerUpdates()
-            if let accelerometerData = motionManager.accelerometerData {
+            if let accelerometerData = motionManager.accelerometerData?.acceleration {
                 if accelerometerData.x > 5.0 || accelerometerData.y > 5.0 || accelerometerData.z > 5.0 {
-                    count++
+                    count+=1
+                    if count % 10 == 0 {
+                        print(count)
+                    }
                 }
             }
-            if count > 20 {
+            if count > 2000 {
+                alarm.stop()
                 break
             }
         }
-        if count < 20 {
+        if count < 2000 {
             numericDisplay.text = "Now we text your ex."
             text(savedNum, msg: "I miss you.")
         } else {
@@ -118,9 +131,9 @@ class ViewController: UIViewController {
         Alamofire.request(.GET, "https://rest.nexmo.com/sms/json?", parameters: params)
             .response { request, response, data, error in
                 
-                print("is it working?")
+//                print("is it working?")
                 print(request)
-                print("hmm")
+//                print("hmm")
                 print(response)
                 
                 do {
@@ -130,15 +143,18 @@ class ViewController: UIViewController {
                 catch {
                     print("Error: \(error)")
                 }
-                
-                print("oops")
+//                print("oops")
                 print(error)
         }
         
     }
     
+    func setDisplayText(txt: String) {
+        self.numericDisplay.text = txt
+    }
+    
     @IBAction func startButtonPressed(sender: AnyObject) {
-        self.numericDisplay.text = "Alarm set for: " + timeSet
+        setDisplayText("Alarm set for: " + timeSet + "\n When the alarm goes off, you have one minute to shake your phone til you're awake!")
         
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "MMM dd, yyyy 'at' h:mm a"
@@ -160,12 +176,12 @@ class ViewController: UIViewController {
         timer = NSTimer.scheduledTimerWithTimeInterval(0.10, target: self, selector: aSelector, userInfo: nil, repeats: true)
     }
     
-    func isAwake(time : NSTimeInterval) -> Bool {
-        motionManager.startAccelerometerUpdates()
-        shakeTimer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(ViewController.update), userInfo: nil, repeats: true)
-        
-        return false
-    }
+//    func isAwake(time : NSTimeInterval) -> Bool {
+//        motionManager.startAccelerometerUpdates()
+//        shakeTimer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(ViewController.update), userInfo: nil, repeats: true)
+//        
+//        return false
+//    }
     
     @IBAction func resetButtonPressed(sender: AnyObject) {
         if (timer.valid) {
