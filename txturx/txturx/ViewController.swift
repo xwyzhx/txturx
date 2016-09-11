@@ -50,13 +50,13 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-//    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
-//        let pickerLabel = UILabel()
-//        let titleData = datePicker[row]
-//        let myTitle = NSAttributedString(string: titleData, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 26.0)!,NSForegroundColorAttributeName:UIColor.blackColor()])
-//        pickerLabel.attributedText = myTitle
-//        return pickerLabel
-//    }
+    //    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
+    //        let pickerLabel = UILabel()
+    //        let titleData = datePicker[row]
+    //        let myTitle = NSAttributedString(string: titleData, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 26.0)!,NSForegroundColorAttributeName:UIColor.blackColor()])
+    //        pickerLabel.attributedText = myTitle
+    //        return pickerLabel
+    //    }
     
     func update() {
         if let accelerometerData = motionManager.accelerometerData {
@@ -133,7 +133,7 @@ class ViewController: UIViewController {
                 print("oops")
                 print(error)
         }
-
+        
     }
     
     @IBAction func startButtonPressed(sender: AnyObject) {
