@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Title-->
@@ -18,13 +19,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WFg-Ke-ZRz">
-                                <rect key="frame" x="0.0" y="364" width="375" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WFg-Ke-ZRz">
+                                <rect key="frame" x="0.0" y="364" width="375" height="43"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="X2d-iG-7St">
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="X2d-iG-7St">
                                 <rect key="frame" x="0.0" y="86" width="375" height="216"/>
                                 <date key="date" timeIntervalSinceReferenceDate="495230638.60593998">
                                     <!--2016-09-10 20:03:58 +0000-->
@@ -33,36 +34,51 @@
                                     <action selector="datePickerAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="h72-XE-a1D"/>
                                 </connections>
                             </datePicker>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tAC-RY-qAX">
-                                <rect key="frame" x="158" y="434" width="60" height="70"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tAC-RY-qAX">
+                                <rect key="frame" x="36" y="507" width="303" height="110"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kQk-20-WO1">
-                                        <rect key="frame" x="0.0" y="0.0" width="60" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kQk-20-WO1">
+                                        <rect key="frame" x="0.0" y="0.0" width="303" height="30"/>
+                                        <color key="backgroundColor" red="0.30870732320635302" green="0.74333996475975306" blue="0.89847756410256407" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="60" id="xNG-Y4-Naw"/>
+                                            <constraint firstAttribute="width" constant="200" id="oWH-Fg-lVm"/>
                                         </constraints>
-                                        <state key="normal" title="Set"/>
+                                        <state key="normal" title="Set">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="startButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Qv-3E-qyv"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="utX-ys-kfF">
-                                        <rect key="frame" x="0.0" y="40" width="60" height="30"/>
-                                        <state key="normal" title="Reset"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="utX-ys-kfF">
+                                        <rect key="frame" x="0.0" y="40" width="303" height="30"/>
+                                        <color key="backgroundColor" red="0.30870732320635302" green="0.74333996475975306" blue="0.89847756410256407" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="5UL-dh-qdq"/>
+                                        </constraints>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="resetButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aMk-Pi-QW9"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fCH-Pc-B1p">
+                                        <rect key="frame" x="0.0" y="80" width="303" height="30"/>
+                                        <color key="backgroundColor" red="0.30870732320635302" green="0.74333996475975306" blue="0.89847756410256407" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="DcH-l1-oI6"/>
+                                        </constraints>
+                                        <state key="normal" title="Number Setup">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="setupPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ziW-QI-ca3"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.2198763321144378" green="0.52382623930503247" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fCH-Pc-B1p">
-                                <rect key="frame" x="184" y="617" width="150" height="30"/>
-                                <state key="normal" title="Number Setup"/>
-                                <connections>
-                                    <segue destination="YUP-am-tvR" kind="show" id="c5b-Ls-Wnp"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -71,8 +87,17 @@
                             <constraint firstAttribute="trailing" secondItem="X2d-iG-7St" secondAttribute="trailing" id="C9D-H9-uXV"/>
                             <constraint firstItem="X2d-iG-7St" firstAttribute="leading" secondItem="WFg-Ke-ZRz" secondAttribute="leading" id="Jsl-Ck-V1k"/>
                             <constraint firstItem="X2d-iG-7St" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Vnf-jo-0J9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tAC-RY-qAX" secondAttribute="trailing" constant="20" id="Yyz-fV-P0D"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="tAC-RY-qAX" secondAttribute="bottom" constant="50" id="qxQ-4a-wrc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tAC-RY-qAX" secondAttribute="trailing" constant="16" id="s6F-Y6-62c"/>
                             <constraint firstItem="X2d-iG-7St" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="66" id="tgv-8Q-sdd"/>
+                            <constraint firstItem="tAC-RY-qAX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="zcG-Ft-ol4"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="s6F-Y6-62c"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="oxx-ZP-sWA"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -80,11 +105,12 @@
                         <outlet property="datePicker" destination="X2d-iG-7St" id="Ymu-SR-xlg"/>
                         <outlet property="numericDisplay" destination="WFg-Ke-ZRz" id="4LS-Wx-zma"/>
                         <outlet property="resetButton" destination="utX-ys-kfF" id="eSE-bh-mTc"/>
+                        <outlet property="setupButton" destination="fCH-Pc-B1p" id="mPX-9R-3Ru"/>
                         <outlet property="startButton" destination="kQk-20-WO1" id="56R-WR-UUi"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="203.5" y="356.5"/>
+            <point key="canvasLocation" x="257.5" y="502.5"/>
         </scene>
         <!--Title-->
         <scene sceneID="GMb-H0-j0N">

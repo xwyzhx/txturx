@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		960B067CF0600BF7DB00CF6E /* Pods_txturx.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58DBA12DEF60FFCCCFDC3F2A /* Pods_txturx.framework */; };
 		F5745D3E1D83CC9B00B27CE3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5745D3D1D83CC9B00B27CE3 /* AppDelegate.swift */; };
 		F5745D401D83CC9B00B27CE3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5745D3F1D83CC9B00B27CE3 /* ViewController.swift */; };
 		F5745D431D83CC9B00B27CE3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5745D411D83CC9B00B27CE3 /* Main.storyboard */; };
@@ -14,7 +15,23 @@
 		F5745D481D83CC9B00B27CE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5745D461D83CC9B00B27CE3 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		5767EDEF1D84EE0900FA4C9A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		0BDDE36040870217C1EEB909 /* Pods-txturx.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-txturx.release.xcconfig"; path = "Pods/Target Support Files/Pods-txturx/Pods-txturx.release.xcconfig"; sourceTree = "<group>"; };
+		58DBA12DEF60FFCCCFDC3F2A /* Pods_txturx.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_txturx.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFA8AC719599A501ACC59052 /* Pods-txturx.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-txturx.debug.xcconfig"; path = "Pods/Target Support Files/Pods-txturx/Pods-txturx.debug.xcconfig"; sourceTree = "<group>"; };
 		F5745D3A1D83CC9B00B27CE3 /* txturx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = txturx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5745D3D1D83CC9B00B27CE3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5745D3F1D83CC9B00B27CE3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,17 +46,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				960B067CF0600BF7DB00CF6E /* Pods_txturx.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C72363004494CCFE5F5115F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				58DBA12DEF60FFCCCFDC3F2A /* Pods_txturx.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EF4332D8712255CBF08BB318 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AFA8AC719599A501ACC59052 /* Pods-txturx.debug.xcconfig */,
+				0BDDE36040870217C1EEB909 /* Pods-txturx.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		F5745D311D83CC9B00B27CE3 = {
 			isa = PBXGroup;
 			children = (
 				F5745D3C1D83CC9B00B27CE3 /* txturx */,
 				F5745D3B1D83CC9B00B27CE3 /* Products */,
+				EF4332D8712255CBF08BB318 /* Pods */,
+				C72363004494CCFE5F5115F5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,9 +108,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F5745D4C1D83CC9B00B27CE3 /* Build configuration list for PBXNativeTarget "txturx" */;
 			buildPhases = (
+				BF096262D692CB1779B70667 /* [CP] Check Pods Manifest.lock */,
 				F5745D361D83CC9B00B27CE3 /* Sources */,
 				F5745D371D83CC9B00B27CE3 /* Frameworks */,
 				F5745D381D83CC9B00B27CE3 /* Resources */,
+				5767EDEF1D84EE0900FA4C9A /* Embed Frameworks */,
+				44D89B7711991BBEC5EA828C /* [CP] Embed Pods Frameworks */,
+				81D6E7A827538ED4847DAC91 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -129,6 +170,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		44D89B7711991BBEC5EA828C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-txturx/Pods-txturx-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		81D6E7A827538ED4847DAC91 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-txturx/Pods-txturx-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BF096262D692CB1779B70667 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F5745D361D83CC9B00B27CE3 /* Sources */ = {
@@ -247,8 +336,10 @@
 		};
 		F5745D4D1D83CC9B00B27CE3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AFA8AC719599A501ACC59052 /* Pods-txturx.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = txturx/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.makeschool.txturx;
@@ -258,8 +349,10 @@
 		};
 		F5745D4E1D83CC9B00B27CE3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0BDDE36040870217C1EEB909 /* Pods-txturx.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = txturx/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.makeschool.txturx;
@@ -286,6 +379,7 @@
 				F5745D4E1D83CC9B00B27CE3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
