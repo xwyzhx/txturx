@@ -50,28 +50,14 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    //    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
-    //        let pickerLabel = UILabel()
-    //        let titleData = datePicker[row]
-    //        let myTitle = NSAttributedString(string: titleData, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 26.0)!,NSForegroundColorAttributeName:UIColor.blackColor()])
-    //        pickerLabel.attributedText = myTitle
-    //        return pickerLabel
-    //    }
-    
-    func update() {
-        if let accelerometerData = motionManager.accelerometerData {
-            print(accelerometerData)
-        }
-    }
-    
     func updateTime() {
         let elapsedTime : NSTimeInterval  = NSDate().timeIntervalSinceDate(currentDateTime)
         let remainingTime : NSTimeInterval = timeLeft - elapsedTime
         
         if remainingTime <= 0.0 {
             timer.invalidate()
-            numericDisplay.text = "Now we text your ex."
             becomeAlarmed()
+            numericDisplay.text = "You have one minute to wake up!"
             oneMinWarning(NSDate())
             
             return
@@ -98,11 +84,26 @@ class ViewController: UIViewController {
     
     func oneMinWarning(start: NSDate) {
         var elapsedTime : NSTimeInterval = NSDate().timeIntervalSinceDate(start)
-        while (elapsedTime < 1.0) {
+        var count = 0;
+        while (elapsedTime < 60.0) {
             // keep on the checking
             elapsedTime = NSDate().timeIntervalSinceDate(start)
+            motionManager.startAccelerometerUpdates()
+            if let accelerometerData = motionManager.accelerometerData {
+                if accelerometerData.x > 5.0 || accelerometerData.y > 5.0 || accelerometerData.z > 5.0 {
+                    count++
+                }
+            }
+            if count > 20 {
+                break
+            }
         }
-        print("hell from 1 sec after")
+        if count < 20 {
+            numericDisplay.text = "Now we text your ex."
+            text(savedNum, msg: "I miss you.")
+        } else {
+            numericDisplay.text = "You're safe for now! Go enjoy your day :)"
+        }
     }
     
     func text(ex: String, msg: String) {
